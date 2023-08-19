@@ -26,23 +26,25 @@ let posts = [
         "discription": "Hier findest du den Text der zu dem bild passt",
         "comments": ['kommentieren über kommentieren', 'Wissen über Wissen']
     }
-]
+];
 
-load();
-
+function start(){
+    render();
+    load();
+}
 function render() {
     let content = document.getElementById('content');
     content.innerHTML = '';
 
     for (let i = 0; i < posts.length; i++) {
-        const post = posts[i];
+        let post = posts[i];
 
         content.innerHTML += htmltemplate(post, i);
 
         let commentcontent = document.getElementById(`comment${i}`);
 
         for (let j = 0; j < post['comments'].length; j++) {
-            const comment = post['comments'][j];
+            let comment = post['comments'][j];
             commentcontent.innerHTML += /* html */ `        
                 <div>${comment}</div>
             `
@@ -50,6 +52,7 @@ function render() {
         };
 
     };
+
 }
 
 function htmltemplate(post, i) {
@@ -96,6 +99,3 @@ function load() {
 function addlike() {
     
 }
-
-
-
