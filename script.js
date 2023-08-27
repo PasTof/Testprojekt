@@ -2,36 +2,37 @@ let posts = [
     {
         "logo": "img/logo1.jpg",
         "name": "Tagesschau",
-        "place": "Berlin",
+        "place": "Hamburg",
         "post": "img/1.png",
-        "likes": "245",
+        "likes": 245,
         "discription": "Hier findest du den Text der zu dem bild passt",
         "comments": ['kommentieren über kommentieren', 'Wissen über Wissen']
     },
     {
         "logo": "img/logo1.jpg",
         "name": "Tagesschau",
-        "place": "Berlin",
+        "place": "Hamburg",
         "post": "img/4.png",
-        "likes": "3",
+        "likes": 3,
         "discription": "Hier findest du den Text der zu dem bild passt",
         "comments": ['kommentieren über kommentieren', 'Wissen über Wissen']
     },
     {
         "logo": "img/logo1.jpg",
         "name": "Tagesschau",
-        "place": "Berlin",
+        "place": "Koblenz",
         "post": "img/9.png",
-        "likes": "11",
+        "likes": 11,
         "discription": "Hier findest du den Text der zu dem bild passt",
         "comments": ['kommentieren über kommentieren', 'Wissen über Wissen']
     }
 ];
 
-function start(){
+function start() {
     render();
     load();
 }
+
 function render() {
     let content = document.getElementById('content');
     content.innerHTML = '';
@@ -48,7 +49,7 @@ function render() {
             commentcontent.innerHTML += /* html */ `        
                 <div>${comment}</div>
             `
-            
+
         };
 
     };
@@ -96,6 +97,8 @@ function load() {
     posts = JSON.parse(postastext);
 }
 
-function addlike() {
-    
+function addlike(i) {
+    posts[i]['likes'] ++;
+    render();
 }
+
