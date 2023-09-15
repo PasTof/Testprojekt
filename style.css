@@ -1,5 +1,68 @@
-.poststructure{
-    width: 300px;
+body {
+    margin: 0;
+}
+
+body.scrolled {
+    padding-top: 70px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 38px;
+    margin-left: 80px;
+    cursor: pointer;
+}
+
+
+.navbar {
+    background-color: white;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    transition: top 0.3s;
+}
+
+.navbar.scrolled {
+    top: -100px;
+}
+
+.headerlink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.headerlinkicons {
+    height: 25px;
+    width: 25px;
+}
+
+
+.headerimgprofil {
+    height: 25px;
+    width: 25px;
+    margin-right: 80px;
+    border-radius: 50%;
+}
+
+
+.postcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.poststructure {
     margin-bottom: 100px;
 }
 
@@ -10,36 +73,128 @@
 
 }
 
-.post-head img{
+.post-head img {
     height: 50px;
     padding: 10px;
 }
 
-.post-head h1 {
+.post-head h2 {
     font-size: 20px;
     margin: 0;
 }
 
-.headname{
+.headname {
     display: flex;
     flex-direction: column;
 }
 
-.post-image{
-    width: 60vh;
+.post-image {
+    width: 50vh;
 }
 
-.ineraction img{
+.ineraction img {
     height: 30px;
 }
 
-.ineraction{
+.ineraction {
     display: flex;
     justify-content: space-between;
-    width: 60vh;
+    width: 50vh;
 }
 
-.discription{
-    width: 60vh;
+.discription {
+    width: 50vh;
+}
+
+.inputcomments {
+    height: 24px;
+    outline: none;
+    border: none;
+    padding: 0;
+    flex: 1;
+}
+
+.comments {
+    width: 50vh;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+.commentButton {
+    border: none;
+    background-color: white;
+    color: blue;
+}
+
+.divInput {
+    display: flex;
+    justify-content: space-between;
+    word-wrap: break-word;
+}
+
+@media(max-width: 800px) {
+    .poststructure {
+        width: 100vw;
+    }
+
+    .postcontainer {
+        width: 100vw;
+    }
+
+    .post-head {
+        display: flex;
+        align-items: center;
+        font-size: small;
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .post-image {
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .ineraction {
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .comments {
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .likes {
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .discription {
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .divInput {
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}
+@media(max-width: 600px){
+    h1{
+        margin-left: 0;
+    }
+    .navbar{
+        justify-content: center;
+    }
+    .headerlink{
+        display: none;
+    }
 }
 
