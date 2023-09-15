@@ -1,43 +1,45 @@
 let posts = [
     {
-        "logo": "img/logo1.jpg",
-        "name": "Tagesschau",
+        "logo": "img/pumpkin.png",
+        "name": "Pumpkino",
         "place": "Hamburg",
         "post": "img/1.png",
         "likes": 245,
         "liked": false,
-        "discription": "Hier findest du den Text der zu dem bild passt",
-        "comments": ['kommentieren über kommentieren', 'Wissen über Wissen'],
+        "discription": "Was für schönes Wasser",
+        "comments": ['Kann man sich wohl nass machen', 'Bötchen fahren'],
         "comment-user": ['Mark', 'Franziska']
     },
     {
-        "logo": "img/logo1.jpg",
-        "name": "Tagesschau",
+        "logo": "img/woman.png",
+        "name": "Charlotte",
         "place": "Hamburg",
         "post": "img/4.png",
         "likes": 3,
         "liked": false,
-        "discription": "Hier findest du den Text der zu dem bild passt",
-        "comments": ['kommentieren über kommentieren', 'Wissen über Wissen'],
-        "comment-user": ['Mark', 'Franziska']
+        "discription": "Da stellt man sein Fahrrad doch gerne ab.",
+        "comments": ['Ich glaub die sind nicht festgebunden', 'nehm ich'],
+        "comment-user": ['Gustav', 'Brigitte']
     },
 
     {
-        "logo": "img/logo1.jpg",
-        "name": "Tagesschau",
+        "logo": "img/fox.png",
+        "name": "Fuchsi",
         "place": "Koblenz",
         "post": "img/9.png",
         "likes": 11,
         "liked": true,
-        "discription": "Hier findest du den Text der zu dem bild passt",
-        "comments": ['kommentieren über kommentieren', 'Wissen über Wissen'],
-        "comment-user": ['Mark', 'Franziska']
+        "discription": "Hab ich da was in der Nase?",
+        "comments": ['Clean as fuck'],
+        "comment-user": ['Rebecca']
     }
 ];
 
 let currentUser = 'Pascal';
 
+
 function start() {
+
     load();
     render();
 }
@@ -51,18 +53,9 @@ function render() {
 
         content.innerHTML += htmltemplate(post, i);
 
-        let commentcontent = document.getElementById(`comment${i}`);
-
-        for (let j = 0; j < post['comments'].length; j++) {
-            commentcontent.innerHTML += /* html */ `        
-                <div><b>${post['comment-user'][j]}</b> ${post['comments'][j]}</div>
-            `
-
-        };
+        createComment(post, i);
         checkIfLiked(i);
     };
-
-
 }
 
 function htmltemplate(post, i) {
@@ -98,8 +91,15 @@ function htmltemplate(post, i) {
 `
 }
 
-function createComment(i) {
+function createComment(post, i) {
+    let commentcontent = document.getElementById(`comment${i}`);
 
+    for (let j = 0; j < post['comments'].length; j++) {
+        commentcontent.innerHTML += /* html */ `        
+            <div><b>${post['comment-user'][j]}</b> ${post['comments'][j]}</div>
+        `
+
+    };
 }
 
 function addComment(index) {
@@ -119,7 +119,9 @@ function save() {
 
 function load() {
     let postastext = localStorage.getItem('posts');
-    posts = JSON.parse(postastext);
+    if(postastext){
+        posts = JSON.parse(postastext);
+    }
 }
 
 function checkIfLiked(i) {
@@ -135,25 +137,24 @@ function checkIfLiked(i) {
 function addlike(i) {
     if (!posts[i]['liked']) {
         posts[i]['liked'] = true;
-        likeIt(i);
+        dontLikeIt(i);
     } else {
         posts[i]['liked'] = false;
-        dontLikeIt(i);
+        likeIt(i);
     }
 
     save();
 }
 
-function likeIt(i) {
+function dontLikeIt(i) {
     posts[i]['likes']--;
     posts[i]['liked'] = true;
-
 
     render();
     save();
 }
 
-function dontLikeIt(i) {
+function likeIt(i) {
     posts[i]['likes']++;
     posts[i]['liked'] = false;
 

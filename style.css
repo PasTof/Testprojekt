@@ -13,6 +13,14 @@ h1 {
     cursor: pointer;
 }
 
+img {
+    cursor: pointer;
+}
+
+b {
+    cursor: pointer;
+}
+
 
 .navbar {
     background-color: white;
@@ -76,11 +84,13 @@ h1 {
 .post-head img {
     height: 50px;
     padding: 10px;
+    border-radius: 50%;
 }
 
 .post-head h2 {
     font-size: 20px;
     margin: 0;
+    cursor: pointer;
 }
 
 .headname {
@@ -90,6 +100,7 @@ h1 {
 
 .post-image {
     width: 50vh;
+    cursor: default;
 }
 
 .ineraction img {
@@ -124,6 +135,7 @@ h1 {
     border: none;
     background-color: white;
     color: blue;
+    cursor: pointer;
 }
 
 .divInput {
@@ -186,14 +198,17 @@ h1 {
         padding-right: 5vw;
     }
 }
-@media(max-width: 600px){
-    h1{
+
+@media(max-width: 600px) {
+    h1 {
         margin-left: 0;
     }
-    .navbar{
+
+    .navbar {
         justify-content: center;
     }
-    .headerlink{
+
+    .headerlink {
         display: none;
     }
 }
